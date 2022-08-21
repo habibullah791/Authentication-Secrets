@@ -18,10 +18,6 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-
-//  Encrypting The Password Filed
-userSchema.plugin(encrypt, { secret: secret , encryptedFields: ['password'] });
-
 // Creating User Model
 const User = mongoose.model("User", userSchema);
 

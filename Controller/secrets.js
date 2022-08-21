@@ -1,11 +1,11 @@
 import User from "../Models/secrets.js";
-
+import md5 from "md5";
 
 // Creating Users
 export const createUser = async (req, res) => {
     const newUser = User({
         email : req.body.username,
-        password : req.body.password
+        password : md5(req.body.password)
     })
 
     try {
@@ -25,7 +25,7 @@ export const createUser = async (req, res) => {
 
 export const findUser = async (req, res)=>{
     const userName = req.body.username;
-    const password = req.body.password;
+    const password = md5(req.body.password);
 
     try {
         User.findOne({email: userName}, (err, foundUser)=>{
