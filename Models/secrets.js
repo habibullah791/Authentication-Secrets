@@ -14,6 +14,12 @@ const userSchema = new mongoose.Schema({
         required: true,
     }
 })
+
+
+//  Encrypting The Password Filed
+var secret = "SOME_LONG_UNGUESSABLE_STRING";
+userSchema.plugin(encrypt, { secret: secret , encryptedFields: ['password'] });
+
 // Creating User Model
 const User = mongoose.model("User", userSchema);
 
