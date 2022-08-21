@@ -1,12 +1,15 @@
+import 'dotenv/config';
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import ejs from 'ejs';
 
-
 import secretsRoutes from './Routes/secrets.js';
 
-const PORT = 3000;
+// Environment Variable
+const PORT = process.env.PORT;
+
+
 const app = express();
 
 app.use(express.static("public"));

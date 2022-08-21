@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 import encrypt from "mongoose-encryption";
 
 
+// Environment Variable
+var secret = process.env.SOME_LONG_UNGUESSABLE_STRING;
+
 // Schema
 const userSchema = new mongoose.Schema({
     email: {
@@ -17,7 +20,6 @@ const userSchema = new mongoose.Schema({
 
 
 //  Encrypting The Password Filed
-var secret = "SOME_LONG_UNGUESSABLE_STRING";
 userSchema.plugin(encrypt, { secret: secret , encryptedFields: ['password'] });
 
 // Creating User Model
