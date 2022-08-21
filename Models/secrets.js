@@ -1,9 +1,4 @@
 import mongoose from "mongoose";
-import encrypt from "mongoose-encryption";
-
-
-// Environment Variable
-var secret = process.env.SOME_LONG_UNGUESSABLE_STRING;
 
 // Schema
 const userSchema = new mongoose.Schema({
